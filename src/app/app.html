@@ -1,1 +1,15 @@
-<p>Hi my name is {{fName}} {{lName}}</p>
+<h2>Various Dog Breeds</h2>
+@for (dog of dogList; track dog.id) {
+  <div class="dog-card">
+    <h3>{{ dog.name }}</h3>
+    <p>{{ dog.breed }}</p>
+    <p>{{ dog.furType }}</p>
+    @if (dog.isHypoallergenic == true){
+    <p>This breed hypoallergenic</p>
+    } @else {
+      <p>This breed is not hypoallergenic</p>
+    }
+  </div>
+} @empty {
+  <p>No dogs have been loaded</p>
+}

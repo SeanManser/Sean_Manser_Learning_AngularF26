@@ -3,5 +3,5 @@ export interface Dog{
   name : string
   breed : string
   furType : string
-  hypoallergenic? : boolean
+  isHypoallergenic? : boolean
 }
