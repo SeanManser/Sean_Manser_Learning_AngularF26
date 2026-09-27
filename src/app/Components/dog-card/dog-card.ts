@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, input} from '@angular/core';
+import {Dog} from '../../shared/models/dog';
 
 @Component({
   imports: [],
@@ -6,4 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './dog-card.css',
   templateUrl: './dog-card.html',
 })
-export class DogCard {}
+export class DogCard {
+
+  dog = input.required<Dog>();
+
+}
