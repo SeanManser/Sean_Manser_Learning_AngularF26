@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import {Dog} from '../../shared/models/dog';
+import {DogCard} from '../dog-card/dog-card';
 
 @Component({
-  imports: [],
+  imports: [
+    DogCard
+  ],
   selector: 'app-dog-list',
   styleUrl: './dog-list.css',
   templateUrl: './dog-list.html',

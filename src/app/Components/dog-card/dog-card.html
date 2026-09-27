@@ -2,9 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>Dog Breeds</title>
 </head>
 <body>
+<h3>{{dog().name}}</h3>
+  @switch (dog().breed){
+    @case ('Golden Retriever') { <span class="Golden Retriever">Golden Retriever</span> }
+    @case ('Boxer') { <span class="Boxer"> Boxer </span>}
+    @case ('Border Collie') { <span class="Border Collie">Border Collie </span>}
+    @case ('Maltese') { <span class="Maltese">Maltese </span>}
+    @case ('Poodle') { <span class="Poodle">Poodle </span>}
+    @case ('Portuguese Water Dog') { <span class="Portuguese Water Dog">Portuguese Water Dog </span>}
+    @default { <span class ="badge">Other/Mixed</span> }
+  }
+
+  @if (dog().isHypoallergenic) {
+    <p>This is a Hypoallergenic Breed!</p>
+  } @else {
+    <p>This is not a Hypoallergenic Breed.</p>
+  }
+
 
 </body>
 </html>

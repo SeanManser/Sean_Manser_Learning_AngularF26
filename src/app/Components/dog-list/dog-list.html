@@ -2,9 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>Dog Breeds</title>
 </head>
 <body>
+  @for (dog of dogList; track dog.id) {
+    <app-dog-card
+    [dog]="dog"
+
+    >
+
+    </app-dog-card>
+  } @empty {
+    <p>No dogs have been loaded</p>
+  }
 
 </body>
 </html>
