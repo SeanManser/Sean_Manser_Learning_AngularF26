@@ -8,10 +8,6 @@ import { Dog } from './shared/models/dog';
   templateUrl: './app.html',
 })
 export class App {
-  protected readonly title = signal('Assignment 1');
-
-  fName : string = "Sean";
-  lName : string = "Manser"
 
   protected dogList : Dog[] = [
     {id: 1, name: "Lily", breed: "Golden Retriever", furType: "Long Coat", isHypoallergenic: false},
