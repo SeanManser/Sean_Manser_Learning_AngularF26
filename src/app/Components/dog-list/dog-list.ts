@@ -21,4 +21,8 @@ export class DogList {
     {id: 6, name: "Tex", breed: "Portuguese Water Dog", furType: "Wavy Coat", isHypoallergenic: true}
   ]
 
+  onDogOpened(dog: Dog): void {
+
+    console.warn("Opened: ", dog.name )
+  }
 }

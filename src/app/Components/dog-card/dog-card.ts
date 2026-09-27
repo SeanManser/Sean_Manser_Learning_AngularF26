@@ -1,4 +1,4 @@
-import {Component, input} from '@angular/core';
+import {Component, input, output} from '@angular/core';
 import {Dog} from '../../shared/models/dog';
 
 @Component({
@@ -11,4 +11,11 @@ export class DogCard {
 
   dog = input.required<Dog>();
 
+  expanded = false
+  opened = output<Dog>()
+
+  toggle(): void {
+    this.expanded = !this.expanded
+    this.opened.emit(this.dog())
+  }
 }

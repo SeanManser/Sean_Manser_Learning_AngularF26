@@ -5,6 +5,7 @@
   <title>Dog Breeds</title>
 </head>
 <body>
+<div class="dog-card" (click)="toggle()">
 <h3>{{dog().name}}</h3>
   @switch (dog().breed){
     @case ('Golden Retriever') { <span class="Golden Retriever">Golden Retriever</span> }
@@ -21,7 +22,7 @@
   } @else {
     <p>This is not a Hypoallergenic Breed.</p>
   }
-
+</div>
 
 </body>
 </html>
