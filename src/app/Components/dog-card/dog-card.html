@@ -1,20 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Dog Breeds</title>
-</head>
-<body>
-<div class="dog-card" (click)="toggle()">
-<h3>{{dog().name}}</h3>
+
+<div class="dog-card" (click)=toggle()>
+<h2>{{dog().name}}</h2>
   @switch (dog().breed){
-    @case ('Golden Retriever') { <span class="Golden Retriever">Golden Retriever</span> }
-    @case ('Boxer') { <span class="Boxer"> Boxer </span>}
-    @case ('Border Collie') { <span class="Border Collie">Border Collie </span>}
-    @case ('Maltese') { <span class="Maltese">Maltese </span>}
-    @case ('Poodle') { <span class="Poodle">Poodle </span>}
-    @case ('Portuguese Water Dog') { <span class="Portuguese Water Dog">Portuguese Water Dog </span>}
-    @default { <span class ="badge">Other/Mixed</span> }
+    @case ('Golden Retriever') { <p>Golden Retriever</p> }
+    @case ('Boxer') {  <p>Boxer</p> }
+    @case ('Border Collie') { <p>Border Collie</p> }
+    @case ('Maltese') { <p>Maltese</p> }
+    @case ('Poodle') { <p>Poodle</p> }
+    @case ('Portuguese Water Dog') { <p>Portuguese Water Dog</p> }
+    @default { <p>Mixed Breed</p> }
   }
 
   @if (dog().isHypoallergenic) {
@@ -22,7 +16,9 @@
   } @else {
     <p>This is not a Hypoallergenic Breed.</p>
   }
+  @if (expanded){
+  <p>{{dog().furType}}</p>
+  }
 </div>
 
-</body>
-</html>
+

@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Dog Breeds</title>
-</head>
-<body>
+
   @for (dog of dogList; track dog.id) {
     <app-dog-card
     [dog]="dog"
-
+    (opened)="onDogOpened($event)"
     >
 
     </app-dog-card>
@@ -16,5 +10,4 @@
     <p>No dogs have been loaded</p>
   }
 
-</body>
-</html>
+
