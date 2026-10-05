@@ -19,7 +19,7 @@ export class DogService {
 
   constructor() {
     effect(() => {
-      console.log('Current number of dogs: ', this.dogCount)
+      console.log('Current number of dogs: ', this.dogCount())
     });
   }
 
@@ -27,6 +27,12 @@ export class DogService {
     this.dogs.update((list)=>[...list, d]);
   }
 
+  removeDog(id:number):void{
+    this.dogs.update((list)=>list.filter(d=>d.id !== id))
+  }
+
   dogsWithHypoallergenic = computed(()=>this.dogList().filter(d=>d.isHypoallergenic));
+
+  numberOfHypoDogs = computed(()=>this.dogsWithHypoallergenic().length);
 
 }

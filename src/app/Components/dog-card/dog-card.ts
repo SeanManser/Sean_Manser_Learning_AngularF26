@@ -12,10 +12,10 @@ export class DogCard {
   dog = input.required<Dog>();
 
   expanded = false
-  opened = output<Dog>()
+  opened = output<number>()
 
   toggle(): void {
     this.expanded = !this.expanded
-    this.opened.emit(this.dog())
+    this.opened.emit(this.dog().id)
   }
 }

@@ -15,8 +15,11 @@ export class DogList {
   protected dogService = inject(DogService)
 
   protected dogList =this.dogService.dogList;
-    onDogOpened(dog: Dog): void {
+    onDogOpened(id:number): void {
+      this.dogService.removeDog(id)
 
-    console.warn("Opened: ", dog.name )
   }
+
+
+
 }
