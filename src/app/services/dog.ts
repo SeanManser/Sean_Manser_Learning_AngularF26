@@ -1,4 +1,4 @@
-import {computed, Service, signal} from '@angular/core';
+import {computed, effect, Service, signal} from '@angular/core';
 import {Dog} from '../shared/models/dog';
 
 @Service()
@@ -14,5 +14,19 @@ export class DogService {
   ])
 
   dogList = this.dogs.asReadonly();
+
+  dogCount =computed(()=>this.dogs().length);
+
+  constructor() {
+    effect(() => {
+      console.log('Current number of dogs: ', this.dogCount)
+    });
+  }
+
+  addDog(d: Dog):void{
+    this.dogs.update((list)=>[...list, d]);
+  }
+
+  dogsWithHypoallergenic = computed(()=>this.dogList().filter(d=>d.isHypoallergenic));
 
 }

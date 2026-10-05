@@ -12,7 +12,7 @@ import {DogService} from '../../services/dog';
   templateUrl: './dog-list.html',
 })
 export class DogList {
-  private dogService = inject(DogService)
+  protected dogService = inject(DogService)
 
   protected dogList =this.dogService.dogList;
     onDogOpened(dog: Dog): void {
