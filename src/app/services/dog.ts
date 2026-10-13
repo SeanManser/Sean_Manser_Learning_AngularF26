@@ -1,8 +1,12 @@
-import {computed, effect, Service, signal} from '@angular/core';
+import {computed, effect, inject, Service, signal} from '@angular/core';
 import {Dog} from '../shared/models/dog';
+import {DOG_CONFIG} from '../shared/dog-config';
 
 @Service()
 export class DogService {
+
+  private config = inject(DOG_CONFIG)
+
   private dogs =signal<Dog[]>([
     {id: 1, name: "Lily", breed: "Golden Retriever", furType: "Long Coat", isHypoallergenic: false},
     {id: 2, name: "Freddy", breed: "Boxer", furType: "Short Coat", isHypoallergenic: false},
