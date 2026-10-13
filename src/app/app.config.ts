@@ -14,6 +14,7 @@ export const appConfig: ApplicationConfig = {
       useValue:{apiBaseUrl: 'madeUpApi.example.com/api', defaultBreed: 'Unknown Breed'}
     },
     {
+      //Change useClass from MockDogService to DogService to return the original placeholder data
       provide: DogService, useClass: MockDogService
     }
   ]
