@@ -8,6 +8,7 @@
   <a routerLink="/dogs/breed/Maltese" routerLinkActive="active">Maltese</a>
   <a routerLink="/favourites" routerLinkActive="active"></a>
   <a routerLink="/add" routerLinkActive="active">Add dog</a>
+  <button (click)="auth.toggleGuard()">{{auth.guardEnabled()?'Enable Editing' : 'Disable Editing' }}</button>
 </nav>
 
 <router-outlet />

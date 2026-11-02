@@ -1,7 +1,8 @@
-import { Component, signal } from '@angular/core';
+import {Component, inject, signal} from '@angular/core';
 import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import { Dog } from './shared/models/dog';
 import {DogList} from "./Components/dog-list/dog-list";
+import {Auth} from './services/auth';
 @Component({
   imports: [RouterOutlet, DogList, RouterLinkActive, RouterLink],
   selector: 'app-root',
@@ -10,5 +11,6 @@ import {DogList} from "./Components/dog-list/dog-list";
 })
 export class App {
 
+    auth = inject(Auth);
 
 }
