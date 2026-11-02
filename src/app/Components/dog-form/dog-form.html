@@ -6,9 +6,13 @@
     Name
     <input type="text" formControlName="name" />
   </label>
-  <!-- touched waits until the user leaves the field, so the message does not appear while they are still typing. -->
+
   @if (dogForm.controls.name.touched && dogForm.controls.name.invalid) {
     <p class="error">Name is required and must be at least 2 characters.</p>
+  }
+  @if (dogForm.controls.name.touched && dogForm.controls.name.hasError('whitespace')) {
+    <p>Name cannot be only whitespaces</p>
+
   }
 
   <label>
@@ -32,6 +36,9 @@
     <input type="checkbox" formControlName="isHypoallergenic" />
     Is this dog hypoallergenic?
   </label>
+  @if (dogForm.controls.breed.touched && dogForm.controls.isHypoallergenic.touched && dogForm.hasError('malteseRule')) {
+    <p>Maltese dogs must be marked as hypoallergenic</p>
+  }
 
   <button type="submit" [disabled]="dogForm.invalid">
     {{ isEditMode() ? 'Save Changes' : 'Add Dog' }}
