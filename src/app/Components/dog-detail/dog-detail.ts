@@ -1,6 +1,6 @@
 import {Component, computed, inject, input} from '@angular/core';
 import {DogService} from '../../services/dog';
-import {RouterLink} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 
 @Component({
   imports: [
@@ -12,11 +12,16 @@ import {RouterLink} from '@angular/router';
 })
 export class DogDetail {
   protected dogService = inject(DogService);
+  private router = inject(Router);
 
   id= input.required<string>();
 
   protected dog = computed(() => this.dogService.getById(Number(this.id())))
 
+  protected onDelete(id: number): void {
+    this.dogService.removeDog(id);
+    this.router.navigate(['/dogs']);
+  }
 
 
 }

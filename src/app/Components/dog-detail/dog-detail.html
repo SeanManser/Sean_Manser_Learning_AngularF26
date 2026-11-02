@@ -13,6 +13,10 @@
       {{ dogService.isFavourite(d.id) ? 'Remove from favourites' : 'Add to favourites' }}
     </button>
   </article>
+  <div class="actions">
+    <a [routerLink]="['/edit', d.id]">Edit</a>
+    <button type="button" class="delete-button" (click)="onDelete(d.id)">Delete</button>
+  </div>
 
   <a routerLink="/dogs">Back to dog list</a>
 }

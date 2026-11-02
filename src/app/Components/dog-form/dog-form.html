@@ -1,3 +1,6 @@
+
+<h2>{{ isEditMode() ? 'Edit Dog' : 'Add Dog' }}</h2>
+
 <form class="dog-form" [formGroup]="dogForm" (ngSubmit)="onSubmit()">
   <label>
     Name
@@ -31,6 +34,6 @@
   </label>
 
   <button type="submit" [disabled]="dogForm.invalid">
-    {{ isEditMode() ? 'Save Changes' : 'Add Brewery' }}
+    {{ isEditMode() ? 'Save Changes' : 'Add Dog' }}
   </button>
 </form>
