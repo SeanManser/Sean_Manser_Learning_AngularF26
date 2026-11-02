@@ -1,0 +1,36 @@
+<form class="dog-form" [formGroup]="dogForm" (ngSubmit)="onSubmit()">
+  <label>
+    Name
+    <input type="text" formControlName="name" />
+  </label>
+  <!-- touched waits until the user leaves the field, so the message does not appear while they are still typing. -->
+  @if (dogForm.controls.name.touched && dogForm.controls.name.invalid) {
+    <p class="error">Name is required and must be at least 2 characters.</p>
+  }
+
+  <label>
+    Breed
+    <input type="text" formControlName="breed" />
+  </label>
+  @if (dogForm.controls.breed.touched && dogForm.controls.breed.invalid) {
+    <p class="error">Breed is required.</p>
+  }
+
+  <label>
+    Fur Type
+    <select formControlName="furType">
+      <option value="long">Long</option>
+      <option value="short">Short</option>
+      <option value="mixed">Mixed</option>
+    </select>
+  </label>
+
+  <label class="checkbox">
+    <input type="checkbox" formControlName="isHypoallergenic" />
+    Is this dog hypoallergenic?
+  </label>
+
+  <button type="submit" [disabled]="dogForm.invalid">
+    {{ isEditMode() ? 'Save Changes' : 'Add Brewery' }}
+  </button>
+</form>

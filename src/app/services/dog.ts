@@ -54,4 +54,15 @@ export class DogService {
     return this.dogs().find((d) => d.id === id);
   }
 
+  getDog(id: number): Dog | undefined {
+    return this.getById(id);
+  }
+
+  nextId(): number {
+    return Math.max(0, ...this.dogs().map((d) => d.id)) + 1;
+  }
+
+  updateDog(updated: Dog): void {
+    this.dogs.update((list) => list.map((b) => (b.id === updated.id ? updated : b)));
+  }
 }
