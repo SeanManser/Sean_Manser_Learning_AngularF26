@@ -41,6 +41,7 @@ export class DogService {
 
   numberOfHypoDogs = computed(()=>this.dogsWithHypoallergenic().length);
 
+
   toggleFavourite(id: number): void {
     this.favouriteIds.update((ids) =>
       ids.includes(id) ? ids.filter((existing) => existing !== id) : [...ids, id],
