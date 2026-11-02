@@ -8,14 +8,16 @@ export class DogService {
   private config = inject(DOG_CONFIG)
 
   private dogs =signal<Dog[]>([
-    {id: 1, name: "Lily", breed: "Golden Retriever", furType: "Long Coat", isHypoallergenic: false},
+    {id: 1, name: "Lily", breed: "Poodle", furType: "Long Coat", isHypoallergenic: false},
     {id: 2, name: "Freddy", breed: "Boxer", furType: "Short Coat", isHypoallergenic: false},
-    {id: 3, name: "Mia", breed: "Border Collie", furType: "Long Coat", isHypoallergenic: false},
+    {id: 3, name: "Mia", breed: "Boxer", furType: "Long Coat", isHypoallergenic: false},
     {id: 4, name: "Jak", breed: "Maltese", furType: "Long Fur", isHypoallergenic: true},
     {id: 5, name: "Sammy", breed: "Poodle", furType: "Curly Coat", isHypoallergenic: false},
-    {id: 6, name: "Tex", breed: "Portuguese Water Dog", furType: "Wavy Coat", isHypoallergenic: true},
+    {id: 6, name: "Tex", breed: "Poodle", furType: "Wavy Coat", isHypoallergenic: true},
     {id: 7, name: "Mumbo", breed: "Unknown", furType: "Shaggy Coat", isHypoallergenic: false}
   ])
+
+  private favouriteIds = signal<readonly number[]>([]);
 
   dogList = this.dogs.asReadonly();
 
@@ -38,5 +40,18 @@ export class DogService {
   dogsWithHypoallergenic = computed(()=>this.dogList().filter(d=>d.isHypoallergenic));
 
   numberOfHypoDogs = computed(()=>this.dogsWithHypoallergenic().length);
+
+  toggleFavourite(id: number): void {
+    this.favouriteIds.update((ids) =>
+      ids.includes(id) ? ids.filter((existing) => existing !== id) : [...ids, id],
+    );
+  }
+
+  isFavourite(id: number): boolean {
+    return this.favouriteIds().includes(id);
+  }
+  getById(id: Number) : Dog | undefined{
+    return this.dogs().find((d) => d.id === id);
+  }
 
 }

@@ -1,0 +1,18 @@
+@if (dog(); as d) {
+  <article class="detail">
+    <h2>{{ d.name }}</h2>
+    <p>Breed: {{ d.breed }}</p>
+    <p>Fur Type: {{ d.furType }}</p>
+    @if (d.isHypoallergenic) {
+      <p>This is a hypoallergenic breed</p>
+    } @else {
+      <p>This is not a hypoallergenic breed</p>
+    }
+
+    <button type="button" class="favourite-button" (click)="dogService.toggleFavourite(d.id)">
+      {{ dogService.isFavourite(d.id) ? 'Remove from favourites' : 'Add to favourites' }}
+    </button>
+  </article>
+
+  <a routerLink="/dogs">Back to dog list</a>
+}

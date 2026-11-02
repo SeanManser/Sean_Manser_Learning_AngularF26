@@ -1,6 +1,15 @@
 <h1>The Greatest Dog Collection</h1>
 
-<app-dog-list></app-dog-list>
+<nav class="nav-bar">
+
+  <a routerLink="/dogs" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">All dogs</a>
+  <a routerLink="/dogs/breed/Poodle" routerLinkActive="active">Poodles</a>
+  <a routerLink="/dogs/breed/Boxer" routerLinkActive="active">Boxers</a>
+  <a routerLink="/dogs/breed/Maltese" routerLinkActive="active">Maltese</a>
+  <a routerLink="/favourites" routerLinkActive="active"></a>
+</nav>
+
+<router-outlet />
 
 
 

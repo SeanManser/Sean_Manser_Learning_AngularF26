@@ -9,4 +9,8 @@
   border: 700px red;
   text-align: center;
 }
+.dog-card a{
+  display: flex;
+  justify-content: center;
+}
 

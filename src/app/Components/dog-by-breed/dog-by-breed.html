@@ -1,0 +1,9 @@
+@for (dog of dogList(); track dog.id) {
+  <app-dog-card
+    [dog]="dog"
+
+    />
+} @empty {
+  <p>No {{ breed() }} found.</p>
+  <a routerLink="/dogs">See dog list</a>
+}
