@@ -50,7 +50,7 @@ export class DogForm {
   protected dogForm = this.fb.nonNullable.group({
     name: ['', [Validators.required, Validators.minLength(2), noWhiteSpaceValidator]],
     breed: ['', Validators.required],
-    furType: ['long'],
+    furType: ['Long'],
     isHypoallergenic: [false],
   },
     {validators: malteseValidator}
