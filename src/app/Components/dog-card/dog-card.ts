@@ -19,6 +19,6 @@ export class DogCard {
 
   toggle(): void {
     this.expanded = !this.expanded
-    this.opened.emit(this.dog().id)
+    this.opened.emit(Number(this.dog().id))
   }
 }

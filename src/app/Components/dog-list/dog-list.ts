@@ -17,7 +17,7 @@ export class DogList {
   protected config = inject(DOG_CONFIG)
 
   protected dogList =this.dogService.dogList;
-    onDogOpened(id:number): void {
+    onDogOpened(id:string): void {
       this.dogService.removeDog(id)
 
   }

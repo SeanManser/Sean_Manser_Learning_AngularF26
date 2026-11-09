@@ -7,10 +7,10 @@
     <input type="text" formControlName="name" />
   </label>
 
-  @if (dogForm.controls.name.touched && dogForm.controls.name.invalid) {
+  @if (dogForm.controls.country.touched && dogForm.controls.country.invalid) {
     <p class="error">Name is required and must be at least 2 characters.</p>
   }
-  @if (dogForm.controls.name.touched && dogForm.controls.name.hasError('whitespace')) {
+  @if (dogForm.controls.country.touched && dogForm.controls.country.hasError('whitespace')) {
     <p>Name cannot be only whitespaces</p>
 
   }

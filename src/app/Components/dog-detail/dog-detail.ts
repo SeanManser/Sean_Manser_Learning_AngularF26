@@ -16,9 +16,9 @@ export class DogDetail {
 
   id= input.required<string>();
 
-  protected dog = computed(() => this.dogService.getById(Number(this.id())))
+  protected dog = computed(() => this.dogService.getById(this.id()))
 
-  protected onDelete(id: number): void {
+  protected onDelete(id: string): void {
     this.dogService.removeDog(id);
     this.router.navigate(['/dogs']);
   }

@@ -48,7 +48,7 @@ export class DogForm {
   protected isEditMode = computed(() => this.id() !== undefined);
 
   protected dogForm = this.fb.nonNullable.group({
-    name: ['', [Validators.required, Validators.minLength(2), noWhiteSpaceValidator]],
+    country: ['', [Validators.required, Validators.minLength(2), noWhiteSpaceValidator]],
     breed: ['', Validators.required],
     furType: ['Long'],
     isHypoallergenic: [false],
@@ -64,7 +64,7 @@ export class DogForm {
       if (id === undefined) {
         return;
       }
-      const dog = this.dogService.getDog(Number(id));
+      const dog = this.dogService.getDog(id);
       if (dog) {
         // patchValue() fills only the fields it is given. The form has no id field,
         // so the id is ignored here and added back on submit.
@@ -80,7 +80,7 @@ export class DogForm {
 
     // getRawValue() includes disabled controls too. value would skip them.
     const formValue = this.dogForm.getRawValue();
-    const id = this.isEditMode() ? Number(this.id()) : this.dogService.nextId();
+    const id = this.isEditMode() ? this.id()! : this.dogService.nextId();
 
     if (this.isEditMode()) {
       this.dogService.updateDog({ id, ...formValue });

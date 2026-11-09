@@ -1,6 +1,6 @@
 
 <div class="dog-card" (click)=toggle()>
-<h2>{{dog().name}}</h2>
+<h2>Country: {{dog().country}}</h2>
   @switch (dog().breed){
     @case ('Golden Retriever') { <p>Golden Retriever</p> }
     @case ('Boxer') {  <p>Boxer</p> }
@@ -8,7 +8,8 @@
     @case ('Maltese') { <p>Maltese</p> }
     @case ('Poodle') { <p>Poodle</p> }
     @case ('Portuguese Water Dog') { <p>Portuguese Water Dog</p> }
-    @default { <p>Sorry! This dog's breed has not been identified.</p> }
+    @default {
+      {{dog().breed}} }
   }
 
   @if (dog().isHypoallergenic) {

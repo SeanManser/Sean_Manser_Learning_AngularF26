@@ -1,6 +1,6 @@
 export interface Dog{
-  id: number
-  name : string
+  id: string
+  country : string
   breed : string
   furType : string
   isHypoallergenic? : boolean

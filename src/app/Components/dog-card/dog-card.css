@@ -13,4 +13,6 @@
   display: flex;
   justify-content: center;
 }
-
+.dog-card{
+  text-align: center;
+}

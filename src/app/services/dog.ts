@@ -1,29 +1,47 @@
 import {computed, effect, inject, Service, signal} from '@angular/core';
 import {Dog} from '../shared/models/dog';
 import {DOG_CONFIG} from '../shared/dog-config';
+import {HttpClient} from '@angular/common/http';
 
 @Service()
 export class DogService {
-
+  private http = inject(HttpClient)
   private config = inject(DOG_CONFIG)
 
+
+  loadDogs():void{
+    this.http.get<any>('https://dogapi.dog/api/v2/breeds').subscribe(response=>{
+      console.log(response.data);
+      const dogs: Dog[] = response.data.map((item:any)=>({
+        id: item.id,
+        country: item.attributes.origin.country,
+        breed: item.attributes.name,
+        furType: item.attributes.coat.type,
+        isHypoallergenic: item.attributes.hypoallergenic
+      }));
+      console.log(dogs)
+      this.dogs.set(dogs)
+    })
+  }
   private dogs =signal<Dog[]>([
-    {id: 1, name: "Lily", breed: "Poodle", furType: "Long", isHypoallergenic: false},
-    {id: 2, name: "Freddy", breed: "Boxer", furType: "Short", isHypoallergenic: false},
-    {id: 3, name: "Mia", breed: "Boxer", furType: "Long", isHypoallergenic: false},
-    {id: 4, name: "Jak", breed: "Maltese", furType: "Long", isHypoallergenic: true},
-    {id: 5, name: "Sammy", breed: "Poodle", furType: "Mixed", isHypoallergenic: false},
-    {id: 6, name: "Tex", breed: "Poodle", furType: "Short", isHypoallergenic: true},
-    {id: 7, name: "Mumbo", breed: "Unknown", furType: "Mixed", isHypoallergenic: false}
+    {id: 'local-1', country: "Lily", breed: "Poodle", furType: "Long", isHypoallergenic: false},
+    {id: 'local-2', country: "Freddy", breed: "Boxer", furType: "Short", isHypoallergenic: false},
+    {id: 'local-3', country: "Mia", breed: "Boxer", furType: "Long", isHypoallergenic: false},
+    {id: 'local-4', country: "Jak", breed: "Maltese", furType: "Long", isHypoallergenic: true},
+    {id: 'local-5', country: "Sammy", breed: "Poodle", furType: "Mixed", isHypoallergenic: false},
+    {id: 'local-6', country: "Tex", breed: "Poodle", furType: "Short", isHypoallergenic: true},
+    {id: 'local-7', country: "Mumbo", breed: "Unknown", furType: "Mixed", isHypoallergenic: false}
   ])
 
-  private favouriteIds = signal<readonly number[]>([]);
+  private favouriteIds = signal<readonly string[]>([]);
 
   dogList = this.dogs.asReadonly();
 
   dogCount =computed(()=>this.dogs().length);
 
   constructor() {
+    this.loadDogs();
+
     effect(() => {
       console.log('Current number of dogs: ', this.dogCount())
     });
@@ -33,7 +51,7 @@ export class DogService {
     this.dogs.update((list)=>[...list, d]);
   }
 
-  removeDog(id:number):void{
+  removeDog(id:string):void{
     this.dogs.update((list)=>list.filter(d=>d.id !== id))
   }
 
@@ -42,25 +60,25 @@ export class DogService {
   numberOfHypoDogs = computed(()=>this.dogsWithHypoallergenic().length);
 
 
-  toggleFavourite(id: number): void {
+  toggleFavourite(id: string): void {
     this.favouriteIds.update((ids) =>
       ids.includes(id) ? ids.filter((existing) => existing !== id) : [...ids, id],
     );
   }
 
-  isFavourite(id: number): boolean {
+  isFavourite(id: string): boolean {
     return this.favouriteIds().includes(id);
   }
-  getById(id: Number) : Dog | undefined{
+  getById(id: string) : Dog | undefined{
     return this.dogs().find((d) => d.id === id);
   }
 
-  getDog(id: number): Dog | undefined {
+  getDog(id: string): Dog | undefined {
     return this.getById(id);
   }
 
-  nextId(): number {
-    return Math.max(0, ...this.dogs().map((d) => d.id)) + 1;
+  nextId(): string {
+    return crypto.randomUUID();
   }
 
   updateDog(updated: Dog): void {

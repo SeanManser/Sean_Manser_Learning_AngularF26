@@ -8,7 +8,7 @@ export class MockDogService {
   private config = inject(DOG_CONFIG)
 
   private dogs =signal<Dog[]>([
-    {id: 777, name: "Lucky", breed: "Penguin", furType: "A cute flightless bird", isHypoallergenic: true},
+    {id: '', country: "Lucky", breed: "Penguin", furType: "A cute flightless bird", isHypoallergenic: true},
 
   ])
 
@@ -26,7 +26,7 @@ export class MockDogService {
     this.dogs.update((list)=>[...list, d]);
   }
 
-  removeDog(id:number):void{
+  removeDog(id:string):void{
     this.dogs.update((list)=>list.filter(d=>d.id !== id))
   }
 

@@ -3,9 +3,9 @@
 <nav class="nav-bar">
 
   <a routerLink="/dogs" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">All dogs</a>
-  <a routerLink="/dogs/breed/Poodle" routerLinkActive="active">Poodles</a>
-  <a routerLink="/dogs/breed/Boxer" routerLinkActive="active">Boxers</a>
-  <a routerLink="/dogs/breed/Maltese" routerLinkActive="active">Maltese</a>
+  <a routerLink="/dogs/breed/Basenji" routerLinkActive="active">Basenji</a>
+  <a routerLink="/dogs/breed/American Foxhound" routerLinkActive="active">American Foxhound</a>
+  <a routerLink="/dogs/breed/Alaskan Malamute" routerLinkActive="active">Alaskan Malamute</a>
   <a routerLink="/favourites" routerLinkActive="active"></a>
   <a routerLink="/add" routerLinkActive="active">Add dog</a>
   <button (click)="auth.toggleGuard()">{{auth.guardEnabled()?'Enable Editing' : 'Disable Editing' }}</button>
