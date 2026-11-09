@@ -2,6 +2,10 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.8.
 
+## Dog API
+The API that I am using is https://dogapi.dog. The documentation can be found here: https://dogapi.dog/docs. 
+An example request is: https://dogapi.dog/api/v2/breeds
+
 ## Development server
 
 To start a local development server, run:

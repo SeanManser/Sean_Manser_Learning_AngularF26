@@ -11,7 +11,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes, withComponentInputBinding()),
     {
       provide: DOG_CONFIG,
-      useValue:{apiBaseUrl: 'madeUpApi.example.com/api', defaultBreed: 'Unknown Breed'}
+      useValue:{apiBaseUrl: 'https://dogapi.dog/', defaultBreed: ''}
     },
     {
       //Change useClass from MockDogService to DogService to return the original placeholder data
