@@ -1,3 +1,8 @@
+@if (dogs.isLoading()) {
+  <p>Loading dogs...</p>
+} @else if (dogs.error()) {
+  <p class="error">Could not load dogs. Check your connection.</p>
+}
 
   @for (dog of dogList(); track dog.id) {
     <app-dog-card

@@ -85,7 +85,7 @@ export class DogForm {
     if (this.isEditMode()) {
       this.dogService.updateDog({ id, ...formValue });
     } else {
-      this.dogService.addDog({ id, ...formValue });
+      this.dogService.addDog(formValue );
     }
 
     this.dogForm.reset();

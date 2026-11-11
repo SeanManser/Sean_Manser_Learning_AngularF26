@@ -11,6 +11,7 @@ import {Router, RouterLink} from '@angular/router';
   templateUrl: './dog-detail.html',
 })
 export class DogDetail {
+
   protected dogService = inject(DogService);
   private router = inject(Router);
 

@@ -11,7 +11,7 @@ export class DogService {
 
   loadDogs():void{
     this.http.get<any>('https://dogapi.dog/api/v2/breeds').subscribe(response=>{
-      console.log(response.data);
+
       const dogs: Dog[] = response.data.map((item:any)=>({
         id: item.id,
         country: item.attributes.origin.country,
@@ -19,18 +19,18 @@ export class DogService {
         furType: item.attributes.coat.type,
         isHypoallergenic: item.attributes.hypoallergenic
       }));
-      console.log(dogs)
+
       this.dogs.set(dogs)
     })
   }
   private dogs =signal<Dog[]>([
-    {id: 'local-1', country: "Lily", breed: "Poodle", furType: "Long", isHypoallergenic: false},
-    {id: 'local-2', country: "Freddy", breed: "Boxer", furType: "Short", isHypoallergenic: false},
-    {id: 'local-3', country: "Mia", breed: "Boxer", furType: "Long", isHypoallergenic: false},
-    {id: 'local-4', country: "Jak", breed: "Maltese", furType: "Long", isHypoallergenic: true},
-    {id: 'local-5', country: "Sammy", breed: "Poodle", furType: "Mixed", isHypoallergenic: false},
-    {id: 'local-6', country: "Tex", breed: "Poodle", furType: "Short", isHypoallergenic: true},
-    {id: 'local-7', country: "Mumbo", breed: "Unknown", furType: "Mixed", isHypoallergenic: false}
+    {id: 'local-1', country: "Canada", breed: "Poodle", furType: "Long", isHypoallergenic: false},
+    {id: 'local-2', country: "Australia", breed: "Boxer", furType: "Short", isHypoallergenic: false},
+    {id: 'local-3', country: "Germany", breed: "Boxer", furType: "Long", isHypoallergenic: false},
+    {id: 'local-4', country: "England", breed: "Maltese", furType: "Long", isHypoallergenic: true},
+    {id: 'local-5', country: "Japan", breed: "Poodle", furType: "Mixed", isHypoallergenic: false},
+    {id: 'local-6', country: "United States", breed: "Poodle", furType: "Short", isHypoallergenic: true},
+    {id: 'local-7', country: "Canada", breed: "Unknown", furType: "Mixed", isHypoallergenic: false}
   ])
 
   private favouriteIds = signal<readonly string[]>([]);
@@ -47,8 +47,9 @@ export class DogService {
     });
   }
 
-  addDog(d: Dog):void{
-    this.dogs.update((list)=>[...list, d]);
+  addDog(b: Omit<Dog, 'id'>): void {
+    this.dogs.update((list) =>
+      [...list, { ...b, id: crypto.randomUUID() }]);
   }
 
   removeDog(id:string):void{
