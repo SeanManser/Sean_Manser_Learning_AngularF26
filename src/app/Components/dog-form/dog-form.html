@@ -3,8 +3,8 @@
 
 <form class="dog-form" [formGroup]="dogForm" (ngSubmit)="onSubmit()">
   <label>
-    Name
-    <input type="text" formControlName="name" />
+    Country
+    <input type="text" formControlName="country" />
   </label>
 
   @if (dogForm.controls.country.touched && dogForm.controls.country.invalid) {
@@ -26,9 +26,14 @@
   <label>
     Fur Type
     <select formControlName="furType">
-      <option value="Long">Long</option>
-      <option value="Short">Short</option>
-      <option value="Mixed">Mixed</option>
+      <option value="curly">curly</option>
+      <option value="double">double</option>
+      <option value="hairless">hairless</option>
+      <option value="long">long</option>
+      <option value="medium">medium</option>
+      <option value="short">short</option>
+      <option value="smooth">smooth</option>
+      <option value="wire">wire</option>
     </select>
   </label>
 

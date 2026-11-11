@@ -2,25 +2,23 @@
   <p>Loading dogs...</p>
 } @else if (dogs.error()) {
   <p class="error">Could not load dogs. Check your connection.</p>
-}
+} @else {
+
 
   @for (dog of dogList(); track dog.id) {
-    <app-dog-card
-    [dog]="dog"
-
-    >
-
-    </app-dog-card>
+    <app-dog-card [dog]="dog"></app-dog-card>
   } @empty {
     <p>No dogs have been loaded</p>
   }
-  <h2>Hypoallergenic Dog Breeds!</h2>
-  @for (dog of dogService.dogsWithHypoallergenic(); track dog.id){
-    <app-dog-card [dog] = "dog"></app-dog-card>
-  } @empty {
-    <p>No Hypoallergenic Dogs</p>
-  }
-  <p>Number of hypoallergenic dogs: {{dogService.numberOfHypoDogs()}}</p>
-  <p>PLACEHOLDER: {{config.apiBaseUrl}}</p>
+}
+<!--  <h2>Hypoallergenic Dog Breeds!</h2>-->
+<!--  @for (dog of dogService.dogsWithHypoallergenic(); track dog.id){-->
+<!--    <app-dog-card [dog] = "dog"></app-dog-card>-->
+<!--  } @empty {-->
+<!--    <p>No Hypoallergenic Dogs</p>-->
+<!--  }-->
+<!--}-->
+<!--  <p>Number of hypoallergenic dogs: {{dogService.numberOfHypoDogs()}}</p>-->
+<!--  <p>PLACEHOLDER: {{config.apiBaseUrl}}</p>-->
 
 

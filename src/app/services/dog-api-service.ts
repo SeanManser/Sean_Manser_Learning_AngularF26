@@ -8,7 +8,7 @@ import {Dog} from '../shared/models/dog';
 export class DogApiService {
   private http = inject(HttpClient)
   private config = inject(DOG_CONFIG)
-  private url = `${this.config.apiBaseUrl}/dogs`
+  private url = `${this.config.apiBaseUrl}/breeds`
 
   search(query: string, perPage: 10):Observable<Dog[]>{
     return this.http.get<Dog[]>(`${this.url}/search`, {

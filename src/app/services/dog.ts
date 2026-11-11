@@ -10,7 +10,7 @@ export class DogService {
 
 
   loadDogs():void{
-    this.http.get<any>('https://dogapi.dog/api/v2/breeds').subscribe(response=>{
+    this.http.get<any>(`${this.config.apiBaseUrl}/breeds`).subscribe(response=>{ // Changed from hardcoded url to apiBaseUrl
 
       const dogs: Dog[] = response.data.map((item:any)=>({
         id: item.id,
