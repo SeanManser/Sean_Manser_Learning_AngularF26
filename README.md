@@ -6,6 +6,9 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 The API that I am using is https://dogapi.dog. The documentation can be found here: https://dogapi.dog/docs. 
 An example request is: https://dogapi.dog/api/v2/breeds
 
+I chose to use HTTP resource because it returns signals and automatically handles the loading, error and data states.
+It also avoids the use of subscribe which can be clunky.
+
 ## Development server
 
 To start a local development server, run:
