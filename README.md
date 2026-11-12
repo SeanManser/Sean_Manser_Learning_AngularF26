@@ -11,6 +11,9 @@ It also avoids the use of subscribe which can be clunky.
 
 The Edit and Delete methods don't permanently change the records because they aren't sent to the API. Therefore the information never changes and when you reload the page, the information is pulled and untouched from the previous changes.
 
+## Ordering of Interceptors
+The order doesn't matter for my app because the errorInterceptor rethrows the error back up the chain and finalize runs regardless of the request failing or succeeding. Both ways the count goes back to zero and the error reaches the code.
+
 ## Development server
 
 To start a local development server, run:
