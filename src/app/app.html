@@ -1,3 +1,12 @@
+@if (errors.errorMessage(); as msg) {
+  <div>
+    <span>{{msg}}</span>
+    <button type="button" (click)="errors.clear()">Dismiss</button>
+  </div>
+
+}
+
+
 <h1>The Greatest Dog Collection</h1>
 
 <nav class="nav-bar">
