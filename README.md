@@ -9,6 +9,8 @@ An example request is: https://dogapi.dog/api/v2/breeds
 I chose to use HTTP resource because it returns signals and automatically handles the loading, error and data states.
 It also avoids the use of subscribe which can be clunky.
 
+The Edit and Delete methods don't permanently change the records because they aren't sent to the API. Therefore the information never changes and when you reload the page, the information is pulled and untouched from the previous changes.
+
 ## Development server
 
 To start a local development server, run:
