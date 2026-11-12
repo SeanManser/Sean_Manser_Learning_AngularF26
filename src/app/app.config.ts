@@ -4,11 +4,14 @@ import { routes } from './app.routes';
 import {DOG_CONFIG} from './shared/dog-config';
 import {DogService} from './services/dog';
 import {MockDogService} from './services/mock-dog-service';
+import {HttpClient, provideHttpClient, withInterceptors} from '@angular/common/http';
+import {loadingIntercepter} from './intercepters/loading-intercepter';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes, withComponentInputBinding()),
+    provideHttpClient(withInterceptors([loadingIntercepter])),
     {
       provide: DOG_CONFIG,
       useValue:{apiBaseUrl: 'https://dogapi.dog/api/v2', defaultBreed: 'Alaskan Malamute'}
@@ -16,6 +19,6 @@ export const appConfig: ApplicationConfig = {
     {
       //Change useClass from MockDogService to DogService to return the original placeholder data
       provide: DogService, useClass: DogService
-    }
+    },
   ]
 };

@@ -9,6 +9,9 @@
   <a routerLink="/favourites" routerLinkActive="active"></a>
   <a routerLink="/add" routerLinkActive="active">Add dog</a>
   <button (click)="auth.toggleGuard()">{{auth.guardEnabled()?'Enable Editing' : 'Disable Editing' }}</button>
+  @if (loading.isLoading()) {
+    <span>Loading...</span>
+  }
 </nav>
 
 <router-outlet />
