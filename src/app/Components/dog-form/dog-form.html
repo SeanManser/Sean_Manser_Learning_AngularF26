@@ -4,7 +4,7 @@
 <form class="dog-form" [formGroup]="dogForm" (ngSubmit)="onSubmit()">
   <label>
     Country
-    <input type="text" formControlName="country" />
+    <input #firstField type="text" formControlName="country" />
   </label>
 
   @if (dogForm.controls.country.touched && dogForm.controls.country.invalid) {

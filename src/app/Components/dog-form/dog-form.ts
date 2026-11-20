@@ -1,4 +1,4 @@
-import {Component, computed, effect, inject, input} from '@angular/core';
+import {afterNextRender Component, computed, effect, ElementRef, inject, input, viewChild} from '@angular/core';
 import {
   FormBuilder,
   ReactiveFormsModule,
@@ -43,6 +43,8 @@ export class DogForm {
   private dogService = inject(DogService);
   private router = inject(Router);
 
+  private firstField = viewChild<ElementRef<HTMLInputElement>>('firstField')
+
   id = input<string>();
 
   protected isEditMode = computed(() => this.id() !== undefined);
@@ -71,7 +73,13 @@ export class DogForm {
         this.dogForm.patchValue({ ...dog, isHypoallergenic: dog.isHypoallergenic ?? false });
       }
     });
+    // // This belongs in afterNextRender because ngOnInit runs before the template is rendered, so the input doesn't exist in the DOM yet and can't be focused.
+    afterNextRender(() => {
+      this.firstField()?.nativeElement.focus();
+    });
   }
+
+
 
   protected onSubmit(): void {
     if (this.dogForm.invalid) {
