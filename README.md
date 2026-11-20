@@ -42,6 +42,17 @@ This makes the first page load smaller and routes are only loaded when they are 
 
 Landing Page Stays Eager: Because /dogs is the first page the user sees, it would be slower to download main and then make a second request for the DogList chunk.
 
+## Lifecycle
+
+### What happened when you read this.id() in the constructor, and why?:
+The detail page failed to load and showed the error `NG0950: Input "id" is required but no value is available yet`.
+This happens because the constructor runs while Angular is still creating the component. Since my id is an input.required(), reading it before it has a value throws an error instead of returning undefined.
+
+### What action in your app caused ngOnDestroy to run, and what does that tell you about what the router does with a page when you leave it?:
+
+ngOnDestroy ran whenever I left the detail page. This includes clicking back buttons, nav bar links, or deleting a dog.
+this shows that navigating away from a component runs ngOnDestroy. When I opened a dog again, a  new instance was created.
+
 ## Development server
 
 To start a local development server, run:
