@@ -2,7 +2,7 @@
   <article class="detail">
     <h2>{{ d.country | uppercase}}</h2>
     <p>Breed: {{ d.breed }}</p>
-    <p>Fur Type: {{ d.furType }}</p>
+    <p>Fur Type: {{ d.furType | furLabel | titlecase }}</p>
     @if (d.isHypoallergenic) {
       <p>This is a hypoallergenic breed</p>
     } @else {

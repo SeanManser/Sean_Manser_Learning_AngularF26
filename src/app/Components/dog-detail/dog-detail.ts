@@ -1,12 +1,15 @@
 import {Component, computed, inject, input} from '@angular/core';
 import {DogService} from '../../services/dog';
 import {Router, RouterLink} from '@angular/router';
-import {UpperCasePipe} from '@angular/common';
+import {TitleCasePipe, UpperCasePipe} from '@angular/common';
+import {FurLabelPipe} from '../../pipes/fur-label-pipe';
 
 @Component({
   imports: [
     RouterLink,
-    UpperCasePipe
+    UpperCasePipe,
+    FurLabelPipe,
+    TitleCasePipe
   ],
   selector: 'app-dog-detail',
   styleUrl: './dog-detail.css',

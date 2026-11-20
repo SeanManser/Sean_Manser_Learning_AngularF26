@@ -9,7 +9,7 @@
     @case ('Poodle') { <p>Poodle</p> }
     @case ('Portuguese Water Dog') { <p>Portuguese Water Dog</p> }
     @default {
-      {{dog().breed}} }
+      {{dog().breed | truncate:15}} }
   }
 
   @if (dog().isHypoallergenic) {
