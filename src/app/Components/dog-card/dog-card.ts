@@ -1,10 +1,12 @@
 import {Component, input, output} from '@angular/core';
 import {Dog} from '../../shared/models/dog';
 import {RouterLink} from '@angular/router';
+import {TitleCasePipe} from '@angular/common';
 
 @Component({
   imports: [
-    RouterLink
+    RouterLink,
+    TitleCasePipe
   ],
   selector: 'app-dog-card',
   styleUrl: './dog-card.css',

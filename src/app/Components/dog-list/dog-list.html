@@ -5,7 +5,7 @@
 } @else {
 
 
-  @for (dog of dogList(); track dog.id) {
+  @for (dog of dogList() | slice:0:12; track dog.id) {
     <app-dog-card [dog]="dog"></app-dog-card>
   } @empty {
     <p>No dogs have been loaded</p>
