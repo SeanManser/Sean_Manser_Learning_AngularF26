@@ -14,6 +14,34 @@ The Edit and Delete methods don't permanently change the records because they ar
 ## Ordering of Interceptors
 The order doesn't matter for my app because the errorInterceptor rethrows the error back up the chain and finalize runs regardless of the request failing or succeeding. Both ways the count goes back to zero and the error reaches the code.
 
+## Lazy Loading 
+Before:
+
+Initial chunk files | Names         |  Raw size | Estimated transfer size
+main-C7X4K65Q.js    | main          | 346.60 kB |                91.24 kB
+styles-5INURTSO.css | styles        |   0 bytes |                 0 bytes
+
+                    | Initial total | 346.60 kB |                91.24 kB
+
+After:
+
+Initial chunk files | Names          |  Raw size | Estimated transfer size
+main-GCJYQMOM.js    | main           | 297.20 kB |                81.26 kB
+styles-5INURTSO.css | styles         |   0 bytes |                 0 bytes
+
+                    | Initial total  | 297.20 kB |                81.26 kB
+
+Lazy chunk files    | Names          |  Raw size | Estimated transfer size
+chunk-C3eYqU7j.js   | dog-form       |  48.30 kB |                10.73 kB
+chunk-zqUJA2gg.js   | dog-detail     |   2.40 kB |                 1.11 kB
+chunk-Co_mnUCK.js   | dog-by-breed   | 870 bytes |               870 bytes
+chunk-CJbPXDwg.js   | page-not-found | 474 bytes |               474 bytes
+
+What Changed: every route except the landing page (/dogs) has been changed to use loadComponent and a dynamic import.
+This makes the first page load smaller and routes are only loaded when they are visited.
+
+Landing Page Stays Eager: Because /dogs is the first page the user sees, it would be slower to download main and then make a second request for the DogList chunk.
+
 ## Development server
 
 To start a local development server, run:
