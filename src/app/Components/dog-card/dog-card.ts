@@ -3,7 +3,7 @@ import {Dog} from '../../shared/models/dog';
 import {RouterLink} from '@angular/router';
 import {TitleCasePipe} from '@angular/common';
 import {TruncatePipe} from '../../pipes/truncate-pipe';
-import {Highlight} from '../../directives/highlight';
+
 
 @Component({
   imports: [
@@ -11,6 +11,12 @@ import {Highlight} from '../../directives/highlight';
     TitleCasePipe,
     TruncatePipe,
     Highlight
+  ],
+  hostDirectives : [
+    {
+      directive: Highlight,
+      inputs: ['appHighlight : highlightColor']
+    },
   ],
   selector: 'app-dog-card',
   styleUrl: './dog-card.css',

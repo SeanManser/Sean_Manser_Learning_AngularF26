@@ -1,5 +1,5 @@
 
-<div class="dog-card" (click)=toggle() [appHighlight]="dog().isHypoallergenic ? '#d4f7dc' : ''">
+<div class="dog-card" (click)=toggle()>
 <h2>Country: {{dog().country}}</h2>
   @switch (dog().breed){
     @case ('Golden Retriever') { <p>Golden Retriever</p> }

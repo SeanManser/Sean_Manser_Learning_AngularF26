@@ -1,15 +1,16 @@
 import {Component, inject, signal} from '@angular/core';
-import {Dog} from '../../shared/models/dog';
 import {DogCard} from '../dog-card/dog-card';
 import {DogService} from '../../services/dog';
 import {DOG_CONFIG} from '../../shared/dog-config';
 import {DogApiService} from '../../services/dog-api-service';
 import {SlicePipe} from '@angular/common';
 
+
 @Component({
   imports: [
     DogCard,
-    SlicePipe
+    SlicePipe,
+    Highlight
   ],
   selector: 'app-dog-list',
   styleUrl: './dog-list.css',

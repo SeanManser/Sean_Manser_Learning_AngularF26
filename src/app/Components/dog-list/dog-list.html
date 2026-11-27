@@ -6,7 +6,7 @@
 
 
   @for (dog of dogList() | slice:0:12; track dog.id) {
-    <app-dog-card [dog]="dog"></app-dog-card>
+    <app-dog-card [dog]="dog" [highlightColor]="dog.isHypoallergenic ? '#d4f7dc' : '' "></app-dog-card>
   } @empty {
     <p>No dogs have been loaded</p>
   }

@@ -1,12 +1,16 @@
+:host{
+  display: block;
+}
+
 .dog-card p{
-  border: 200000px;
+  border: 2px;
 
 
   text-align: center;
 }
 .dog-card h2{
   color: red;
-  border: 700px red;
+  border: 7px red;
   text-align: center;
 }
 .dog-card a{
