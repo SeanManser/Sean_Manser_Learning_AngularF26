@@ -1,5 +1,5 @@
 @if (dog(); as d) {
-  <article class="detail">
+  <article class="detail" appHighlight>
     <h2>{{ d.country | uppercase}}</h2>
     <p>Breed: {{ d.breed }}</p>
     <p>Fur Type: {{ d.furType | furLabel | titlecase }}</p>

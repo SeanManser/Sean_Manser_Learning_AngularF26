@@ -3,12 +3,14 @@ import {Dog} from '../../shared/models/dog';
 import {RouterLink} from '@angular/router';
 import {TitleCasePipe} from '@angular/common';
 import {TruncatePipe} from '../../pipes/truncate-pipe';
+import {Highlight} from '../../directives/highlight';
 
 @Component({
   imports: [
     RouterLink,
     TitleCasePipe,
-    TruncatePipe
+    TruncatePipe,
+    Highlight
   ],
   selector: 'app-dog-card',
   styleUrl: './dog-card.css',

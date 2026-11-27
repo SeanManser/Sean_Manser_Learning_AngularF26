@@ -3,13 +3,15 @@ import {DogService} from '../../services/dog';
 import {Router, RouterLink} from '@angular/router';
 import {TitleCasePipe, UpperCasePipe} from '@angular/common';
 import {FurLabelPipe} from '../../pipes/fur-label-pipe';
+import {Highlight} from '../../directives/highlight';
 
 @Component({
   imports: [
     RouterLink,
     UpperCasePipe,
     FurLabelPipe,
-    TitleCasePipe
+    TitleCasePipe,
+    Highlight
   ],
   selector: 'app-dog-detail',
   styleUrl: './dog-detail.css',
