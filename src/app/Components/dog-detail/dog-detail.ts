@@ -4,6 +4,7 @@ import {Router, RouterLink} from '@angular/router';
 import {TitleCasePipe, UpperCasePipe} from '@angular/common';
 import {FurLabelPipe} from '../../pipes/fur-label-pipe';
 import {Highlight} from '../../directives/highlight';
+import {Confirm} from '../../directives/confirm';
 
 @Component({
   imports: [
@@ -11,7 +12,8 @@ import {Highlight} from '../../directives/highlight';
     UpperCasePipe,
     FurLabelPipe,
     TitleCasePipe,
-    Highlight
+    Highlight,
+    Confirm
   ],
   selector: 'app-dog-detail',
   styleUrl: './dog-detail.css',
