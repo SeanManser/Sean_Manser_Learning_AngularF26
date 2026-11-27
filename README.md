@@ -53,6 +53,11 @@ This happens because the constructor runs while Angular is still creating the co
 ngOnDestroy ran whenever I left the detail page. This includes clicking back buttons, nav bar links, or deleting a dog.
 this shows that navigating away from a component runs ngOnDestroy. When I opened a dog again, a  new instance was created.
 
+## localStorage
+I store the saved dog ids, and the dark mode setting. This is because the user set them and would like to keep them post-refresh.
+The ids are enough information to find the dogs again, so I don't have to use the full api data.
+You should never store passwords, session tokens or private api keys.
+
 ## Development server
 
 To start a local development server, run:
