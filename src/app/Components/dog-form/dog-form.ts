@@ -1,4 +1,4 @@
-import {afterNextRender Component, computed, effect, ElementRef, inject, input, viewChild} from '@angular/core';
+import {afterNextRender, Component, computed, effect, ElementRef, inject, input, viewChild} from '@angular/core';
 import {
   FormBuilder,
   ReactiveFormsModule,
