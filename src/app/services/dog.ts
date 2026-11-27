@@ -33,7 +33,7 @@ export class DogService {
     {id: 'local-7', country: "Canada", breed: "Unknown", furType: "Mixed", isHypoallergenic: false}
   ])
 
-  private favouriteIds = signal<readonly string[]>([]);
+  //private favouriteIds = signal<readonly string[]>([]);
 
   dogList = this.dogs.asReadonly();
 
@@ -61,15 +61,15 @@ export class DogService {
   numberOfHypoDogs = computed(()=>this.dogsWithHypoallergenic().length);
 
 
-  toggleFavourite(id: string): void {
-    this.favouriteIds.update((ids) =>
-      ids.includes(id) ? ids.filter((existing) => existing !== id) : [...ids, id],
-    );
-  }
+  // toggleFavourite(id: string): void {
+  //   this.favouriteIds.update((ids) =>
+  //     ids.includes(id) ? ids.filter((existing) => existing !== id) : [...ids, id],
+  //   );
+  // }
 
-  isFavourite(id: string): boolean {
-    return this.favouriteIds().includes(id);
-  }
+  // isFavourite(id: string): boolean {
+  //   return this.favouriteIds().includes(id);
+  // }
   getById(id: string) : Dog | undefined{
     return this.dogs().find((d) => d.id === id);
   }

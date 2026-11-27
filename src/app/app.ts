@@ -5,6 +5,7 @@ import {DogList} from "./Components/dog-list/dog-list";
 import {Auth} from './services/auth';
 import {LoadingService} from './services/loading-service';
 import {ErrorService} from './services/error-service';
+import {ThemeService} from './services/theme-service';
 @Component({
   imports: [RouterOutlet, DogList, RouterLinkActive, RouterLink],
   selector: 'app-root',
@@ -16,5 +17,6 @@ export class App {
     auth = inject(Auth);
     loading = inject(LoadingService)
     errors = inject(ErrorService)
+    theme = inject(ThemeService)
 
 }

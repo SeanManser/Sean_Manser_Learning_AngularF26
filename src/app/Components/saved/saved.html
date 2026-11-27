@@ -1,0 +1,7 @@
+<h2>Saved dogs</h2>
+
+@for (dog of savedDogs(); track dog.id) {
+  <p><a [routerLink]="['/dogs', dog.id]">{{ dog.breed }}</a></p>
+} @empty {
+  <p>You haven't saved any dogs yet. Open a dog and click Save to add it here.</p>
+}

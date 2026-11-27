@@ -5,6 +5,7 @@ import {TitleCasePipe, UpperCasePipe} from '@angular/common';
 import {FurLabelPipe} from '../../pipes/fur-label-pipe';
 import {Highlight} from '../../directives/highlight';
 import {Confirm} from '../../directives/confirm';
+import {SavedService} from '../../services/saved-service';
 
 @Component({
   imports: [
@@ -23,6 +24,7 @@ export class DogDetail implements OnInit, OnDestroy{
 
   protected dogService = inject(DogService);
   private router = inject(Router);
+  protected saved = inject(SavedService)
 
   id= input.required<string>();
 

@@ -11,16 +11,21 @@
 
 <nav class="nav-bar">
 
+  <button type="button" (click)="theme.toggle()">
+    {{ theme.isDark() ? 'Light mode' : 'Dark mode' }}
+  </button>
+
   <a routerLink="/dogs" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">All dogs</a>
   <a routerLink="/dogs/breed/Basenji" routerLinkActive="active">Basenji</a>
   <a routerLink="/dogs/breed/American Foxhound" routerLinkActive="active">American Foxhound</a>
   <a routerLink="/dogs/breed/Alaskan Malamute" routerLinkActive="active">Alaskan Malamute</a>
-  <a routerLink="/favourites" routerLinkActive="active"></a>
+  <a routerLink="/saved" routerLinkActive="active">Saved</a>
   <a routerLink="/add" routerLinkActive="active">Add dog</a>
   <button (click)="auth.toggleGuard()">{{auth.guardEnabled()?'Enable Editing' : 'Disable Editing' }}</button>
   @if (loading.isLoading()) {
     <span>Loading...</span>
   }
+
 </nav>
 
 <router-outlet />

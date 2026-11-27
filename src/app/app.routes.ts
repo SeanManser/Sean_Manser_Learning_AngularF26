@@ -12,7 +12,7 @@ export const routes: Routes = [
   { path: 'add', loadComponent: ()=> import('./Components/dog-form/dog-form').then(m=> m.DogForm) },
   { path: 'edit/:id', loadComponent: () =>
       import('./Components/dog-form/dog-form').then(m => m.DogForm), canActivate:[authGuard] },
-  //{ path: 'favourites', component: Favourites },
+  { path: 'saved', loadComponent: () => import('./Components/saved/saved').then(m => m.Saved) },
 
 
   { path: '**', loadComponent: () =>
